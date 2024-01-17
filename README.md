@@ -7,8 +7,10 @@ Ensure you have run
 I have provided a build of the tailwind css with this in prod mode. 
 Worth noting that, I've focussed more on the functionality, and made it look kind of OK, but tried to show some knowledge in that area. 
 
-Trello planning board: ask for acces with email. Trello no longer allow public boards. 
+Trello planning board: ask for access with email. Trello no longer allow public boards. 
 
 I would have loved to include
-- unit tests (were part of the initial plan, which was TDD. Chose not to for time)
-- better UI, as I know I'm better than this
+- unit tests (were part of the initial plan, which was TDD. Chose not to for time, and didnt make it back to do them)
+- better UI, as I know I'm much(much) better than this
+- the validation didnt play ball, so I commented it out, but would have been nice to break that out and have some proper validation
+- used TALL stack instead but kept it simple
