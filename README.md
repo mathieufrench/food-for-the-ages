@@ -14,3 +14,14 @@ I would have loved to include
 - better UI, as I know I'm much(much) better than this
 - the validation didnt play ball, so I commented it out, but would have been nice to break that out and have some proper validation
 - used TALL stack instead but kept it simple
+
+Within Trello I outlined two future phases.
+Phase 1:
+- Meal images
+- Selection of Recipe cards pulled in from an API 
+- better ages ranges
+
+Phase 2:
+- More age appropriate meals in terms of ability
+- Printable recipes within the page, instead of external recipe cards
+- dietary preferences
