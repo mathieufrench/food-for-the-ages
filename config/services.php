@@ -30,5 +30,8 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-
+    'mealdb' => [
+        'api_key' => '1', //this is a public testing and development API key
+        'base_url' => 'https://www.themealdb.com/api/json/v1/1',
+    ],
 ];

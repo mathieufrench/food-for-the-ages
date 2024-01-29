@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Services\Meals\AdultMeal;
 use App\Services\Meals\ChildMeal;
 use Illuminate\Routing\Controller;
+use App\Services\MealDbApi\MealDbApi;
 use Illuminate\Support\Facades\Cookie;
 use App\Http\Repositories\CookieRepository;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -45,9 +46,9 @@ class HomeController extends Controller
 
     public function storeAge(Request $request)
     {
-        // $this->validate($request, [
-        //     'age' => 'required|numeric|integer|min:1|max:150', // Validation rules
-        // ]);
+        $this->validate($request, [
+            'age' => 'required|numeric|integer|min:1|max:150', // Validation rules
+        ]);
 
         $cookie = $this->cookieRepository->saveCookie(
             value: $this->getCookieValue($request),
@@ -70,20 +71,25 @@ class HomeController extends Controller
         }
 
         $meal = $mealType->findRandomMeal();
-
+        $api = new MealDbApi();
+        $recipes = $api->searchMealsAndProcess($meal->api_search);
+        
         $submission = new Submission([
             'meal_id' => $meal->id,
             'cookie_id' => $cookie->id,
         ]);
         $submission->save();
 
-        return view('show_meal', ['meal' => $meal, 'meal_notification' => $mealType->noticeMessage()]);
+        $recipe = $recipes['meals'][0] ?? null;
+
+        return view('show_meal', [
+            'meal' => $meal, 
+            'recipe' => $recipe,
+            'meal_notification' => $mealType->noticeMessage()]);
     }
 
     protected function getCookieValue($request)
     {
         return $request->cookie('user_cookie');
     }
-
-
 }
