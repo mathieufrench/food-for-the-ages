@@ -44,7 +44,7 @@ class CookieRepository
         return $this->getMeals($record);
     }
 
-    public function saveCookie(?String $value, ?Int $age): Cookie
+    public function saveCookie(?String $value = null, ?Int $age = null): Cookie
     {
         $cookie = Cookie::firstOrNew(['cookie_value' => $value]);
 
@@ -60,6 +60,4 @@ class CookieRepository
 
         return $cookie;
     }
-
-    
 }

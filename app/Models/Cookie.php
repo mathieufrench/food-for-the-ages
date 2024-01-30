@@ -4,13 +4,13 @@ namespace App\Models;
 
 use App\Models\Meal;
 use App\Models\Submission;
+use Database\Factories\CookieFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Cookie extends Model
 {
     use HasFactory;
-
     protected $fillable = ['cookie_value'];
 
     public function submissions()
@@ -27,5 +27,10 @@ class Cookie extends Model
             'id',
             'meal_id'
         );
+    }
+
+    protected static function newFactory()
+    {
+        return CookieFactory::new();
     }
 }

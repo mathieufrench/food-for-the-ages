@@ -49,8 +49,7 @@ class HomeController extends Controller
         $this->validate($request, [
             'age' => 'required|numeric|integer|min:1|max:150', // Validation rules
         ]);
-
-        $cookie = $this->cookieRepository->saveCookie(
+        $this->cookieRepository->saveCookie(
             value: $this->getCookieValue($request),
             age: $request->input('age'),
         );
