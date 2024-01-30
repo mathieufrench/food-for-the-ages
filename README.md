@@ -12,6 +12,12 @@ This project is simple, and you can run it in any environment you deem appropria
   or call it directly: './vendor/bin/sail'
 - run './vendor/bin/sail up' or 'sail up'
 
+## After initial setup
+- run 'sail artisan migrate'
+- run 'sail db:seed'
+
+Visit http://localhost to view. 
+
 # Notes
 I have provided a build of the tailwind css with this in prod mode. 
 Worth noting that, I've focussed more on the functionality, and made it look kind of OK, but tried to show some knowledge in that area. 
